@@ -1,0 +1,3 @@
+(library
+ (name training)
+ (public_name training))

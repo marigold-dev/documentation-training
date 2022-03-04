@@ -1,0 +1,32 @@
+opam-version: "2.0"
+
+version: "dev"
+synopsis: "A small training about documenting things in OCaml"
+maintainer: "Xavier Van de Woestyne <xaviervdw@gmail.com"
+authors: [ "Xavier Van de Woestyne <xaviervdw@gmail.com" ]
+license: "GPL-3.0-or-later"
+tags: ["training" "odoc" "marigold"]
+
+description: """
+A small training about documenting things in OCaml for the Marigold
+Training Train.
+"""
+
+homepage: "https://github.com/xvw/training-odoc"
+dev-repo: "git://github.com/xvw/training-odoc.git"
+bug-reports: "https://github.com/xvw/training-odoc/issues"
+
+
+build: [
+  [ "dune" "subst" ]
+  [ "dune" "build" "-p" name "-j" jobs ]
+  [ "dune" "runtest" "-p" name ] {with-test}
+  [ "dune" "build" "@doc" "-p" name ] {with-doc}
+]
+
+depends: [
+  "ocaml" { >= "4.13.1" }
+  "dune" { >= "3.0" }
+  "odoc" { with-doc & >= "2.1.0" }
+  "mdx" { with-test & >= "2.1.0" }
+]

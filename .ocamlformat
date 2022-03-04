@@ -1,0 +1,7 @@
+version = 0.21.0
+profile = conventional
+
+doc-comments = after-when-possible
+doc-comments-padding = 2
+doc-comments-tag-only = default
+parse-docstrings = true
